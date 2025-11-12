@@ -12,6 +12,10 @@
 <li>Configuración de GitHub, clear repo y subir commits...</li>
 </ol>
 
-# Para arrancar el LocalHost
+# Para arrancar el LocalHost (Apartado Laravel)
 
 -php artisan serve
+
+# Para arrancar vite (Poder aplicar CSS)
+
+-npm run dev
