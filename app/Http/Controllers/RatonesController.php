@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // Acceso al Storage
-use Iluminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class RatonesController extends Controller
 {
@@ -14,13 +14,16 @@ class RatonesController extends Controller
         $registros = [];
 
         // Verificación para ver si el archivo existe
-        if (Storage::exist('formulario.csv')) {
-            $lineas = Storage::lines('formulario.csv');
+        if (Storage::exists('formulario.csv')) {
+        $contenido = Storage::get('formulario.csv');             // Leer todo el archivo
+            $lineas = explode("\n", $contenido);   // Separar por línea
             foreach ($lineas as $linea) {
-                $registros[] = $linea;
+                if (trim($linea) !== '') {                    // Evitar líneas vacías
+                    $registros[] = $linea;
+                }
             }
-        }
 
-        return view('ratones', compact('registros'));
+            return view('ratones', compact('registros'));
+        }
     }
 }

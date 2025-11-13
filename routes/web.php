@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 // Importamos la ruta de los controladores
-
+// Aprendí que tiene que ir 1 a 1 por el tema del PSR-4,
+// el cual solo carga cada clase cuando se usa, curioso
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\RatonesController;
 
 // La página inicio siempre será Index
 Route::get('/', function () {
@@ -30,5 +32,6 @@ Route::get('/ranking', function () {
 })->name('ranking');
 
 // Esta es la página de los ratones
-Route::get('/ratones', [RatonesController::class, 'index'])->name('ratones');
+Route::get('/ratones', [RatonesController::class, 'index'])
+->name('ratones');
 
