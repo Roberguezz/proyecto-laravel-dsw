@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles / Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>WMouse</title>
@@ -29,7 +30,11 @@
         </div>
     </header>
     <!-- Fin del header -->
+    {{-- Aquí Empieza cada página --}}
     <h1>WMouse</h1>
     <p>Esta es la página de ratones</p>
+    <div class="Mensaje_aviso_form_ratones">
+        <p>Por ahora no hay mucho que enseñar, pero cuento con ustedes para barajar sugerencias de ratones, por ello, disponen de un formulario de sugerencias <a class="Carita" href="{{ route('contacto')}}">:)</a></p>
+    </div>
 </body>
 </html>

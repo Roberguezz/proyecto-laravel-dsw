@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles / Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>WMouse</title>
@@ -29,7 +30,12 @@
         </div>
     </header>
     <!-- Fin del header -->
+    {{-- Aquí Empieza cada página --}}
     <h1>WMouse</h1>
     <p>Empezamos fuerte y al medio en el index</p>
+    <div class="Mensaje_bienvenida">
+    <p>Hola, esta es una página enfocada al nicho de ratones gaming principalmente, donde mostraré y compararé todo tipo de modelos diferentes.</p>
+    <p>Este proyecto funciona con Laravel + Blade + Node</p>
+    </div>
 </body>
 </html>
