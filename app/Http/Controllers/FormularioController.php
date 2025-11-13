@@ -22,7 +22,7 @@ class FormularioController extends Controller
         ]);
 
         // Crear el formato CSV
-        $linea = "Nombre: {$validated['nombre']} | Correo: {$validated['email']} | Mensaje: {$validated['mensaje']} | Fecha: ". now()->toDateTimeString();
+        $linea = "Nombre: {$validated['nombre']} | Correo: {$validated['email']} | Mensaje: {$validated['mensaje']} | Fecha: " . now()->toDateTimeString();
 
         // Guardar en storage/app/formulario.csv
         Storage::append('formulario.csv', $linea);

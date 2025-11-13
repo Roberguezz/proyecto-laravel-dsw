@@ -21,15 +21,15 @@
             <div class="Menu_cabecera_content">
                 <div class="Menu_cabecera_start">
                     <div class="Logo">
-                        <a class="a_menu_logo" href="{{route('index')}}">
+                        <a class="a_menu_logo" href="{{ route('index') }}">
                             <span class="W">W</span>Mouse
                         </a>
                     </div>
                 </div>
                 <div class="Menu_cabecera_tabs">
-                    <a class="a_menu" href="{{ route('ranking')}}">Ranking</a>
-                    <a class="a_menu" href="{{ route('ratones')}}">Ratones</a>
-                    <a class="a_menu" href="{{ route('contacto')}}">Contacto</a>
+                    <a class="a_menu" href="{{ route('ranking') }}">Ranking</a>
+                    <a class="a_menu" href="{{ route('ratones') }}">Ratones</a>
+                    <a class="a_menu" href="{{ route('contacto') }}">Contacto</a>
                 </div>
                 <div class="Menu_cabecera_end"></div>
             </div>
@@ -46,10 +46,10 @@
     {{-- Aquí va toda la vista de sugerencias y el manejo --}}
 
     <h2>Listado de Sugerencias activas</h2>
-    @if(count($registros) === 0)
+    @if (count($registros) === 0)
         <p>No hay registros aún.</p>
     @else
-        <table>
+        <table class="Tabla_registro_ratones">
             <thead>
                 <tr>
                     <th>#</th>
@@ -57,7 +57,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($registros as $index => $registro)
+                @foreach ($registros as $index => $registro)
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $registro }}</td>
@@ -69,7 +69,7 @@
 
     <div class="Mensaje_aviso_form_ratones">
         <p>Por ahora no hay mucho que enseñar, pero cuento con ustedes para barajar sugerencias de ratones, por ello,
-            disponen de un formulario de sugerencias <a class="Carita" href="{{ route('contacto')}}">:)</a></p>
+            disponen de un formulario de sugerencias <a class="Carita" href="{{ route('contacto') }}">:)</a></p>
     </div>
 </body>
 
