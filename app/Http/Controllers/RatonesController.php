@@ -23,7 +23,12 @@ class RatonesController extends Controller
                 }
             }
 
-            return view('ratones', compact('registros'));
+            
         }
+    
+    // Pequeño arrelo, que no se mostraba la página si no detectaba el ficherlo mala mia
+    return view('ratones', compact('registros'));
+    
     }
+
 }
