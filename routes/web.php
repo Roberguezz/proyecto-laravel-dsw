@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 // Importamos la ruta de los controladores
 // Aprendí que tiene que ir 1 a 1 por el tema del PSR-4,
 // el cual solo carga cada clase cuando se usa, curioso
@@ -35,3 +35,16 @@ Route::get('/ranking', function () {
 Route::get('/ratones', [RatonesController::class, 'index'])
 ->name('ratones');
 
+Route::get('/test-form', function () {
+    return view('test_form');
+})->name('test_form');
+
+Route::post('/test-form', function (Request $request) {
+    $request->validate([
+        'nombre' => 'required|string|max:50',
+        'email' => 'required|email',
+        'password' => 'required|string|min:6'
+    ]);
+
+    return redirect()->route('test_form')->with('success', __('Formulario enviado correctamente'));
+})->name('test_form.enviar');
