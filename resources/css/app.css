@@ -5,3 +5,106 @@
 [x-cloak] {
     display: none;
 }
+
+body {
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(0, 0, 0, 0.605);
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+}
+
+.Menu_cabecera {
+    background: gray;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.Menu_cabecera_content {
+    display: flex;
+}
+
+.Menu_cabecera_start {
+    padding-right: 10px;
+}
+
+.W {
+    color: red;
+}
+
+:hover.W {
+    text-decoration-thickness: unset;
+}
+
+.Logo {
+    margin-left: 25%;
+}
+
+.Menu_cabecera_tabs {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 20px;
+}
+
+.a_menu_logo {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+}
+
+.a_menu {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+}
+
+.a_menu.hover {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+}
+
+:hover.a_menu {
+    background: white;
+    color: red;
+}
+
+.Label_autor {
+    color: black;
+    text-align: center;
+    background-color: white;
+    letter-spacing: 2.5px;
+}
+
+.Carita {
+    color: red;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.Titulo_form {
+    text-decoration-line: underline;
+}
+
+.Formulario {
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    grid-template-columns: 100px;
+}
+
+.Tabla_registro_ratones {
+    border-style: outset;
+    border-color: black;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 20px;
+    
+}
+
+.Tabla_registro_ratones th, td {
+    border-style: outset;
+    border-color: black;
+}
