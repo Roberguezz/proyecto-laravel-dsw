@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 // Importamos la ruta de los controladores
 // Aprendí que tiene que ir 1 a 1 por el tema del PSR-4,
 // el cual solo carga cada clase cuando se usa, curioso
