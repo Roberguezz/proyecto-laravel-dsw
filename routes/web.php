@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\RatonesController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\UserController;
 
 // Página de inicio
 Route::get('/', function () {
@@ -50,4 +51,22 @@ Route::middleware([
 
     Route::post('/adminlte/usuarios', [AdminUserController::class, 'store'])
         ->name('adminlte.usuarios.store');
+});
+
+// Grupo protegido por autenticación
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    
+    // Prefijo /admin para toda la gestión
+    Route::prefix('admin')->group(function () {
+        
+        // Rutas manuales (como pide el enunciado antes del extra)
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+        Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+        Route::put('/users/{id}/edit', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+        
+    });
 });
