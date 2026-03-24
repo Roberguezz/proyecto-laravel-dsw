@@ -21,7 +21,7 @@ Route::post('/contacto', [FormularioController::class, 'procesarFormulario'])
 
 // Página Ranking
 Route::get('/ranking', function () {
-    return view('ranking'); 
+    return view('ranking');
 })->name('ranking');
 
 // Página Ratones
@@ -40,7 +40,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-     // AdminLTE Welcome
+    // AdminLTE Welcome
     Route::get('/adminlte', function () {
         return view('adminlte.welcome');
     })->name('adminlte.welcome');
@@ -55,18 +55,20 @@ Route::middleware([
 
 // Grupo protegido por autenticación
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    
-    // Prefijo /admin para toda la gestión
+
+    // Gestión de Usuarios con prefijo /admin
     Route::prefix('admin')->group(function () {
-        
+
         // Rutas manuales (como pide el enunciado antes del extra)
-        Route::get('/users', [UserController::class, 'index'])->name('users.index');
-        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-        Route::post('/users', [UserController::class, 'store'])->name('users.store');
-        Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
-        Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-        Route::put('/users/{id}/edit', [UserController::class, 'update'])->name('users.update');
-        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
-        
+        // Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        // Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        // Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        // Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+        // Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+        // Route::put('/users/{id}/edit', [UserController::class, 'update'])->name('users.update');
+        // Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+       // La línea única que sustituye a las manuales (Requisito Extra)
+        Route::resource('users', UserController::class);
     });
 });
