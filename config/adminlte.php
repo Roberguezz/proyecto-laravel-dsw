@@ -301,9 +301,14 @@ return [
     'menu' => [
         // Menu lateral necesario
         [
-            'text' => 'Usuarios',
-            'url'  => '/adminlte/usuarios',
-            'icon' => 'fas fa-users',
+            'text' => 'Gestión de usuarios',
+            'url' => 'admin/users',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Nuevo usuario',
+            'url' => 'admin/users/create',
+            'icon' => 'fas fa-fw fa-user-plus',
         ],
         // Navbar items:
         [
@@ -325,13 +330,6 @@ return [
             'text' => 'blog',
             'url' => 'admin/blog',
             'can' => 'manage-blog',
-        ],
-        [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [
