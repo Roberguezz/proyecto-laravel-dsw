@@ -5,6 +5,7 @@ use App\Http\Controllers\FormularioController;
 use App\Http\Controllers\RatonesController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Api\AuthController;
 
 // Página de inicio
 Route::get('/', function () {
@@ -68,7 +69,16 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         // Route::put('/users/{id}/edit', [UserController::class, 'update'])->name('users.update');
         // Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
-       // La línea única que sustituye a las manuales (Requisito Extra)
+        // La línea única que sustituye a las manuales (Requisito Extra)
         Route::resource('users', UserController::class);
     });
+});
+
+// Ruta para el login (POST)
+Route::post('/login', [AuthController::class, 'login']);
+
+// Grupo protegido
+Route::middleware('auth:sanctum')->group(function () {
+    // Fíjate bien: aquí ponemos 'users' en plural
+    Route::get('/users', [AdminUserController::class, 'index']);
 });
