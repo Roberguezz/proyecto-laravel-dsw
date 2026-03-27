@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Cliente API Usuarios</title>
+</head>
+<body>
+    <h1>Gestión de Usuarios (API)</h1>
+    
+    <div id="login-section">
+        <h3>Login</h3>
+        <input type="email" id="email" placeholder="Email" value="admin@example.com">
+        <input type="password" id="password" placeholder="Password" value="password">
+        <button onclick="login()">Obtener Token</button>
+    </div>
+
+    <hr>
+
+    <div id="api-section">
+        <button onclick="getUsers()">Cargar Usuarios desde API</button>
+        <ul id="user-list"></ul>
+    </div>
+
+    <script>
+        let token = '';
+
+        async function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('http://localhost:8000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                token = data.token;
+                alert('¡Token obtenido y guardado!');
+                console.log('Token:', token);
+            } else {
+                alert('Error en el login');
+            }
+        }
+
+        async function getUsers() {
+            const response = await fetch('http://localhost:8000/api/users', {
+                headers: { 
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json' 
+                }
+            });
+
+            const users = await response.json();
+            const list = document.getElementById('user-list');
+            list.innerHTML = '';
+            
+            users.forEach(user => {
+                list.innerHTML += `<li>${user.name} (${user.email})</li>`;
+            });
+        }
+    </script>
+</body>
+</html>
